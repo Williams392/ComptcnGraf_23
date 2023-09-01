@@ -1,11 +1,9 @@
 ﻿  Source.cpp
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(28,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(33,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(34,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(41,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(46,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(47,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(98,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(133,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\Semana3_barco\Source.cpp(134,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  Semana3_barco.vcxproj -> C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo\Semana3\Semana3_barco\x64\Debug\Semana3_barco.exe
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\Semana3_barco\Source.cpp(28,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\Semana3_barco\Source.cpp(33,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\Semana3_barco\Source.cpp(34,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\Semana3_barco\Source.cpp(41,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\Semana3_barco\Source.cpp(46,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\Semana3_barco\Source.cpp(47,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\Semana3_barco\Source.cpp(98,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Semana3_barco.vcxproj -> C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana3_bote\x64\Debug\Semana3_barco.exe

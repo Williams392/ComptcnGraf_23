@@ -98,50 +98,12 @@ void estrellas() {
 	srand(time(NULL));
 	glPointSize(5);
 	glBegin(GL_POINTS);
-	    glColor3ub(250, 150, 250);
-	    for (int i = 0; i < 10; i++) {
-		    int cx = rand() % (16 - 0 + 1) + 0; // Mitad
-		    int cy = rand() % (12 - 6 + 1) + 6; // donde se va mostrar las Est
-		    glVertex2d(cx, cy);
-	    }
-	glEnd();
-}
-
-void caballo() {
-	// Cuerpo del caballo (rectángulo marrón)
-	glBegin(GL_POLYGON);
-	glColor3ub(139, 69, 19); // Marrón
-	glVertex2d(5, 2.5);
-	glVertex2d(6, 2.5);
-	glVertex2d(6, 4.5);
-	glVertex2d(5, 4.5);
-	glEnd();
-
-	// Cabeza del caballo (rectángulo marrón)
-	glBegin(GL_POLYGON);
-	glColor3ub(139, 69, 19); // Marrón
-	glVertex2d(4.5, 4.5);
-	glVertex2d(6.5, 4.5);
-	glVertex2d(6.5, 5);
-	glVertex2d(4.5, 5);
-	glEnd();
-
-	// Ojos (círculos negros)
-	glBegin(GL_POLYGON);
-	glColor3ub(0, 0, 0); // Negro
-	for (double i = 0; i < 3.14 * 2; i += 0.001) {
-		float cx = 0.2 * cos(i);
-		float cy = 0.2 * sin(i);
-		glVertex2d(cx + 5.2, cy + 4.75); // Posición del ojo izquierdo
-		glVertex2d(cx + 6, cy + 4.75);   // Posición del ojo derecho
-	}
-	glEnd();
-
-	// Cola (línea marrón)
-	glBegin(GL_LINES);
-	glColor3ub(139, 69, 19); // Marrón
-	glVertex2d(5.5, 4.5);
-	glVertex2d(5.5, 5.5);
+	        glColor3ub(250, 150, 250);
+	        for (int i = 0; i < 10; i++) {
+		            int cx = rand() % (16 - 0 + 1) + 0;
+					int cy = rand() % (12 - 6 + 1) + 6;
+					glVertex2d(cx, cy);
+	        }
 	glEnd();
 }
 
@@ -165,7 +127,6 @@ void dibujar(){
 	barcoComleto();
 	estrellas();
 
-	caballo();
 	glFlush();
 }
 
