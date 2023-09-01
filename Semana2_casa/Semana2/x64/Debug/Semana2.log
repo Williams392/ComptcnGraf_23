@@ -1,0 +1,9 @@
+﻿  Semana2.cpp
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\Semana2\Semana2.cpp(7,36): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\Semana2\Semana2.cpp(17,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\Semana2\Semana2.cpp(25,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\Semana2\Semana2.cpp(32,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\Semana2\Semana2.cpp(40,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\Semana2\Semana2.cpp(48,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\Semana2\Semana2.cpp(61,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+  Semana2.vcxproj -> C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana2_casa\x64\Debug\Semana2.exe
