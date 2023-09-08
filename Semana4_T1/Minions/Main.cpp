@@ -7,7 +7,6 @@ void init()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glOrtho(0, 1366, 0, 650, 0, 650);
-
 }
 
 static float  tx = 0.0;

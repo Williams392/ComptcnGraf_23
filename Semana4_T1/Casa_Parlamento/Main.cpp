@@ -5,23 +5,11 @@
 
 #include <GL/gl.h>
 #include <GL/glut.h>
-GLfloat q = 0.0f;
-GLfloat position = 0.0f;
-GLfloat speed = 0.01f;
-int r = 0;
+//GLfloat q = 0.0f;
+//GLfloat position = 0.0f;
+//GLfloat speed = 0.01f;
+//int r = 0;
 
-void update(int value) {
-
-	if (position > 1.0)
-		position = -1.0f;
-
-	position += speed;
-
-	glutPostRedisplay();
-
-
-	glutTimerFunc(100, update, 0);
-}
 
 void bird()
 {
@@ -56,7 +44,7 @@ void sky1()
 
 	glBegin(GL_TRIANGLE_FAN);
 	glColor3ub(30, 217, 255);
-	glVertex2f(x, y); // center of circle
+	glVertex2f(x, y); 
 	for (i = 0; i <= triangleAmount; i++) {
 		glVertex2f(
 			x + (radius * cos(i * twicePi / triangleAmount)),
@@ -69,7 +57,7 @@ void sky1()
 
 	glBegin(GL_TRIANGLE_FAN);
 	glColor3ub(30, 217, 255);
-	glVertex2f(a, b); // center of circle
+	glVertex2f(a, b); 
 	for (i = 0; i <= triangleAmount; i++) {
 		glVertex2f(
 			a + (radius * cos(i * twicePi / triangleAmount)),
@@ -194,7 +182,7 @@ void sky2()
 
 
 }
-void fullsky()
+void Cielo_competo()
 {
 	glLoadIdentity();
 	glBegin(GL_POLYGON);
@@ -540,7 +528,7 @@ void mainbuilding()
 
 }
 
-void flags()
+void Banderas()
 {
 	glBegin(GL_QUADS);
 	glColor3ub(255, 255, 153);
@@ -580,14 +568,14 @@ void display()
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Set background color to black and opaque
 	glClear(GL_COLOR_BUFFER_BIT);
-	fullsky();
+	Cielo_competo();
 	grass();
 	stairs();
 	mainbuilding();
-	flags();
+	Banderas();
 
 	glPushMatrix();
-	glTranslatef(position, 0.0f, 0.0f);
+	//glTranslatef(position, 0.0f, 0.0f);
 	sky1();
 	sky2();
 	bird();
@@ -605,7 +593,7 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(50, 50);
 	glutCreateWindow("parliament bhaban,");
 	glutDisplayFunc(display);
-	glutTimerFunc(10, update, 0);
+	//glutTimerFunc(10, update, 0);
 	glutMainLoop();
 	return 0;
 }

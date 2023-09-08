@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ciudad_Noche-Dia", "Ciudad_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Casa_Parlamento", "Casa_Parlamento\Casa_Parlamento.vcxproj", "{E9D05A3B-AE1A-424C-8F49-CB7AD41BB3D0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Minions", "Minions\Minions.vcxproj", "{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{E9D05A3B-AE1A-424C-8F49-CB7AD41BB3D0}.Release|x64.Build.0 = Release|x64
 		{E9D05A3B-AE1A-424C-8F49-CB7AD41BB3D0}.Release|x86.ActiveCfg = Release|Win32
 		{E9D05A3B-AE1A-424C-8F49-CB7AD41BB3D0}.Release|x86.Build.0 = Release|Win32
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Debug|x64.ActiveCfg = Debug|x64
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Debug|x64.Build.0 = Debug|x64
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Debug|x86.ActiveCfg = Debug|Win32
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Debug|x86.Build.0 = Debug|Win32
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Release|x64.ActiveCfg = Release|x64
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Release|x64.Build.0 = Release|x64
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Release|x86.ActiveCfg = Release|Win32
+		{2D4781B2-F8BC-4E2E-B905-C6BF169F1669}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
