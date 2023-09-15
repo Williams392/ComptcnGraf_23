@@ -7,6 +7,7 @@ void init()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glOrtho(0, 1366, 0, 650, 0, 650);
+
 }
 
 static float  tx = 0.0;
@@ -23,7 +24,7 @@ void DrawCircle(float cx, float cy, float rx, float ry, int num_segments)
 	glBegin(GL_TRIANGLE_FAN);
 	for (int ii = 0; ii < num_segments; ii++)
 	{
-		float theta = 1.0f * 3.1415926f * float(ii) / float(num_segments);
+		float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);
 
 		float x = rx * cosf(theta);
 		float y = ry * sinf(theta);
@@ -67,7 +68,11 @@ void myDisplay()
 	glColor3f(0.31, 0.74, 0.95);
 
 
+
+
+
 	glBegin(GL_POLYGON);
+	glVertex2i(0, 240);
 	glVertex2i(1365, 240);
 	glVertex2i(1365, 650);
 	glVertex2i(0, 650);
@@ -92,7 +97,7 @@ void myDisplay()
 	glVertex2i(309, 589);
 	glVertex2i(317, 591);
 	glVertex2i(324, 592);
-	glVertex2i(330, 96);
+	glVertex2i(330, 596);
 	glVertex2i(336, 600);
 	glVertex2i(337, 607);
 	glVertex2i(334, 613);
@@ -155,20 +160,12 @@ void myDisplay()
 
 
 
-
-
-
-
-
-
-
-
 	glColor3f(0.98, 1.0, 0.99);
 	glBegin(GL_POLYGON);
 	glVertex2i(718, 599);
 	glVertex2i(714, 567);
 	glVertex2i(721, 562);
-	glVertex2i(727, 560);
+	glVertex2i(727, 560); ///
 	glVertex2i(733, 557);
 	glVertex2i(740, 556);
 	glVertex2i(748, 555);
@@ -234,7 +231,7 @@ void myDisplay()
 	glVertex2i(648, 617);
 	glVertex2i(637, 617);
 	glVertex2i(631, 616);
-	glVertex2i(622, 614);
+	glVertex2i(622, 614); ///
 	glVertex2i(616, 611);
 	glVertex2i(612, 608);
 	glVertex2i(608, 599);
@@ -501,7 +498,6 @@ void myDisplay()
 
 	glColor3f(0.78, 0.91, 0.98);
 	glBegin(GL_POLYGON);
-
 	glVertex2i(1155, 292);
 	glVertex2i(1365, 289);
 	glVertex2i(1365, 372);
@@ -611,7 +607,6 @@ void myDisplay()
 
 	glColor3f(0.78, 0.91, 0.98);
 	glBegin(GL_POLYGON);
-
 	glVertex2i(307, 290);
 	glVertex2i(704, 291);
 	glVertex2i(703, 382);
@@ -748,7 +743,7 @@ void myDisplay()
 	glEnd();
 
 
-	//chair
+	// silla
 
 	glColor3f(0.79, 0.66, 0.53);
 	glBegin(GL_POLYGON);
@@ -856,8 +851,8 @@ void myDisplay()
 	glVertex2i(206, 187);
 	glEnd();
 
-	//Minions
-	//shoes
+	// Secuaces
+	// zapatos
 
 
 	glColor3f(0.21, 0.21, 0.21);
@@ -909,7 +904,7 @@ void myDisplay()
 	glVertex2i(733, 64);
 
 	glEnd();
-	//body
+	// cuerpo
 	glColor3f(0.35, 0.53, 0.63);
 	glBegin(GL_POLYGON);
 	glVertex2i(716, 152);
@@ -1054,7 +1049,7 @@ void myDisplay()
 	glVertex2i(572, 369);
 
 	glEnd();
-	//r hand
+	// mano
 	glColor3f(0.97, 0.85, 0.43);
 	glBegin(GL_POLYGON);
 	glVertex2i(860, 257);
@@ -1114,7 +1109,7 @@ void myDisplay()
 	glVertex2i(738, 554);
 	glEnd();
 
-	//eye
+	// ojo
 	glColor3f(0.28, 0.28, 0.28);
 	glBegin(GL_POLYGON);
 	glVertex2i(578, 475);
@@ -1173,7 +1168,7 @@ void myDisplay()
 	glEnd();
 
 
-	//eye
+	// ojo
 
 	glColor3f(0.73, 0.73, 0.73);
 	glBegin(GL_POLYGON);
@@ -1184,13 +1179,13 @@ void myDisplay()
 
 
 	glEnd();
-	//eyerish
+	// ojos
 	glPushMatrix();
 	glColor3f(0.73, 0.73, 0.73);
 
 	DrawCircle(764, 481, 94, 86, 500);
 	glPopMatrix();
-	//2nd circle
+	// 2do círculo
 	glPushMatrix();
 
 	glColor3f(1.0, 1.0, 1.0);
@@ -1209,10 +1204,12 @@ void myDisplay()
 
 
 
+
+
 	glPopMatrix();
 
 
-	//4th circle
+	// 4to circulo
 	glPushMatrix();
 
 	glColor3f(0.0, 0.0, 0.0);
@@ -1229,7 +1226,7 @@ void myDisplay()
 
 
 
-	//Guitar
+	// Guitarra
 	glColor3f(0.37, 0.25, 0.22);
 	glBegin(GL_POLYGON);
 	glVertex2i(621, 205);
@@ -1345,9 +1342,9 @@ void myDisplay()
 	glEnd();
 
 
-	//Guitar circle
+	// Círculo de guitarra
 	glPushMatrix();
-	glColor3f(0.02, 0.02, 0.05);
+	glColor3f(0.02, 0.03, 0.05);
 	DrawCircle(645, 228, 25, 30, 500);
 	glPopMatrix();
 
@@ -1368,7 +1365,7 @@ void myDisplay()
 	glVertex2i(855, 294);
 	glEnd();
 
-	//st
+	// st
 	glColor3f(0.43, 0.36, 0.33);
 	glBegin(GL_LINES);
 	glVertex2i(769, 268);
@@ -1398,7 +1395,7 @@ void myDisplay()
 	glEnd();
 
 
-	//quitat head
+	// cabeza quitada
 	glColor3f(0.37, 0.25, 0.22);
 	glBegin(GL_POLYGON);
 	glVertex2i(970, 318);
@@ -1434,6 +1431,7 @@ void myDisplay()
 	glVertex2i(957, 266);
 	glVertex2i(955, 262);
 	glEnd();
+
 
 
 	glColor3f(0.9, 0.88, 0.86);
@@ -1482,7 +1480,7 @@ void myDisplay()
 	glVertex2i(934, 355);
 	glEnd();
 
-	//GUITAR POINT HEAD
+	// PUNTA DE GUITARRA
 	glPushMatrix();
 	glColor3f(0.8, 0.79, 0.78);
 	DrawCircle(931, 318, 4, 4, 20);
@@ -1503,7 +1501,7 @@ void myDisplay()
 	DrawCircle(934, 297, 4, 4, 20);
 	glPopMatrix();
 
-	//guitar strings
+	//cuerdas de guitarra
 	glColor3f(1.0, 1.0, 1.0);
 	glBegin(GL_LINES);
 	glVertex2i(932, 312);
@@ -1517,7 +1515,7 @@ void myDisplay()
 	glEnd();
 
 
-	// 1 hand
+	// 1 mano
 	glColor3f(0.97, 0.85, 0.43);
 	glBegin(GL_POLYGON);
 	glVertex2i(519, 295);
@@ -1543,7 +1541,10 @@ void myDisplay()
 	//gltranslatef(0,50,0);
 		//glTranslatef(tx,ty,0);
 
-	//Lhand fingers
+
+
+/////////////////////////////////////////////////////////
+	//Dedos de la mano izquierda
 	glBegin(GL_POLYGON);
 	glColor3f(0.25, 0.24, 0.23);
 	glVertex2i(569, 275);
@@ -1562,14 +1563,14 @@ void myDisplay()
 	glVertex2i(645, 302);
 	glVertex2i(652, 302);
 	glVertex2i(658, 293);
-	glVertex2i(657, 287);
+	glVertex2i(657, 287); //
 	glVertex2i(653, 280);
 	glVertex2i(645, 272);
 	glVertex2i(637, 271);
 	glVertex2i(636, 266);
 	glVertex2i(644, 266);
 	glVertex2i(650, 270);
-	glVertex2i(655, 270);
+	glVertex2i(655, 270); //
 	glVertex2i(654, 258);
 	glVertex2i(647, 251);
 	glVertex2i(632, 243);
@@ -1590,7 +1591,7 @@ void myDisplay()
 	glPopMatrix();
 
 
-
+	// aca - mano - isquierda:
 	glPushMatrix();
 	glTranslatef(tx1, ty1, 0);
 	glColor3f(0.25, 0.24, 0.23);
@@ -1615,7 +1616,7 @@ void myDisplay()
 	glVertex2i(p + 888, 295);
 	glVertex2i(p + 883, 300);
 	glVertex2i(p + 882, 306);
-	glVertex2i(p + 861, 312);
+	glVertex2i(p + 881, 312);
 	glVertex2i(p + 884, 317);
 	glVertex2i(p + 888, 321);
 	glVertex2i(p + 894, 322);
@@ -1625,7 +1626,7 @@ void myDisplay()
 	glVertex2i(p + 920, 309);
 	glVertex2i(p + 925, 297);
 	glVertex2i(p + 926, 286);
-	glVertex2i(p + 926, 274);
+	glVertex2i(p + 926, 274); // bien
 	glVertex2i(p + 926, 266);
 	glVertex2i(p + 928, 261);
 	glVertex2i(p + 926, 254);
@@ -1634,17 +1635,18 @@ void myDisplay()
 	glVertex2i(p + 912, 238);
 	glVertex2i(p + 899, 236);
 	glVertex2i(p + 890, 237);
-	glVertex2i(p + 886, 241);
+	glVertex2i(p + 886, 241); // bien
 	glVertex2i(p + 882, 243);
 	glVertex2i(p + 882, 248);
-	glVertex2i(p + 883, 252); glVertex2i(p + 883, 253);
+	glVertex2i(p + 883, 252); 
+	glVertex2i(p + 883, 253);
 	glEnd();
 	glPopMatrix();
 
 
 
 
-	//Mouth
+	//Boca
 	glColor3f(0.25, 0.1, 0.1);
 	glBegin(GL_POLYGON);
 	glVertex2i(698, 334);
@@ -1664,7 +1666,7 @@ void myDisplay()
 	glVertex2i(696, 328);
 	glEnd();
 
-	//Teeth
+	//Dientes
 	glColor3f(0.91, 0.9, 0.88);
 	glBegin(GL_POLYGON);
 	glVertex2i(755, 337);
@@ -1694,8 +1696,8 @@ void myDisplay()
 }
 void myplay()
 {
-	//Rhand finger 
-//glFlush();
+	//dedo derecho
+    //glFlush();
 }
 void spe_key(int Key, int X, int y)
 {
@@ -1724,7 +1726,7 @@ int main(int argc, char** argv)
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(400, 400);
 	glutInitWindowPosition(200, 200);
-	glutCreateWindow("Minions");
+	glutCreateWindow("MINIONS");
 	init();
 	glutDisplayFunc(myDisplay);
 	//glutkeyboardFunc(my_keyboard);
