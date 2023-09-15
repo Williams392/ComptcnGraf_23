@@ -1,0 +1,21 @@
+﻿  Main.cpp
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(27,19): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(38,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(40,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(54,19): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(65,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(67,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(80,19): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(91,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(93,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(105,19): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(116,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(118,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(131,19): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(142,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(144,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(158,20): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(169,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(171,14): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\Semana5_bici_2d\Main.cpp(192,55): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+  Semana5_bici_2d.vcxproj -> C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana5_bici_2d\x64\Debug\Semana5_bici_2d.exe
