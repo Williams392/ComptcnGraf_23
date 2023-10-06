@@ -31,7 +31,7 @@ void dibujar() {
 
 	glPushMatrix();
 	   glColor3ub(140, 30, 220);
-	   glTranslated(20, 0, 0); // posición
+	   glTranslated(20, 0, 0); // posicion
 	   glutSolidCube(4);
 	glPopMatrix();
 
@@ -41,7 +41,7 @@ void dibujar() {
 int main(int argc, char* argv[]) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
-	glutInitWindowSize(1081, 762); // Resolución de la IMG ancho y alto
+	glutInitWindowSize(1081, 762); // Resolucion de la IMG ancho y alto
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("Semana 5 - Dibujos 3D");
 
