@@ -1,0 +1,6 @@
+﻿  Main.cpp
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\T2_3D\T2_3D\Main.cpp(24,48): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\T2_3D\T2_3D\Main.cpp(26,46): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\T2_3D\T2_3D\Main.cpp(374,17): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\T2_3D\T2_3D\Main.cpp(377,18): warning C4305: '+=': truncamiento de 'double' a 'float'
+  T2_3D.vcxproj -> C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\T2_3D\x64\Debug\T2_3D.exe
