@@ -1,0 +1,13 @@
+﻿  Main.cpp
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(35,48): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(37,46): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(180,55): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(190,19): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(191,19): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(192,20): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(193,20): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(216,17): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(219,18): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(231,18): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\Semana9_casa3D\Main.cpp(237,19): warning C4305: '+=': truncamiento de 'double' a 'float'
+  Semana9_casa3D.vcxproj -> C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana9_casa3D\x64\Debug\Semana9_casa3D.exe
