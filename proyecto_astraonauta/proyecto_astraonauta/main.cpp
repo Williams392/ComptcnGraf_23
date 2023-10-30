@@ -124,6 +124,7 @@ void piso() {
 	glEnd();
 	glPopMatrix();
 } */
+
 void piso() { // Modificando Piso con imagen:
 
 	glEnable(GL_TEXTURE_2D);

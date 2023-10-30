@@ -131,10 +131,10 @@
     <ClCompile Include="texturas\RgbImage.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="texturas\RgbImage.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="texturas\RgbImage.h" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
