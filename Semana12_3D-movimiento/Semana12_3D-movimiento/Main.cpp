@@ -15,7 +15,7 @@ float radio = 66.72;
 float angulo = 2.23;
 float centroY = 10;
 
-// ------
+// --------------------------
 GLuint texturas[5]; // un arreglo de 5 elementos -> 5 imagenes
 
 GLUquadric* quad;
@@ -25,6 +25,13 @@ int ladoX = 1;
 float posCubox = 0;
 
 float giroTierra = 0;
+
+// helicoptero:
+float giroHelice = 0;
+float velHelice = 0.8;
+float alturaHelicoptero = 0;
+float giroHelicoptero = 0;
+float moverHelicoptero = 0;
 
 // 1. CargarTexturasDesdeArchivo:
 void loadTexturesFromFile(const char* filename, int index) { // filename -> Nombre del archivo
@@ -43,8 +50,10 @@ void cargarImagenes() {
 	loadTexturesFromFile("texturas/tierra.bmp", 0);
 	loadTexturesFromFile("texturas/piso.bmp", 1);
 	loadTexturesFromFile("texturas/pared.bmp", 2);
+	loadTexturesFromFile("Texturas/cielo.bmp", 3); 
 }
-// ------
+// --------------------------
+
 void iniciarVentana(int w, int h) {
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
@@ -266,14 +275,174 @@ void cuboRojo() {
 	glPopMatrix();
 
 }
+
+// helicoptero:
+void cabina() {
+	glPushMatrix();
+	glColor3ub(0, 0, 255);
+	glTranslated(0, 10, 0);
+	glScaled(1, 1, 1.3);
+	glutWireSphere(10, 20, 20);
+	glPopMatrix();
+}
+
+void trenAterrizaje(float posX) {
+
+	glPushMatrix();
+	glColor3ub(80, 90, 190);
+	glTranslated(posX, 1, -10);
+	gluCylinder(gluNewQuadric(), 1, 1, 20, 30, 30);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3ub(255, 160, 10); // naranja
+	glTranslated(posX, 1, -10);
+	gluSphere(gluNewQuadric(), 1, 30, 30);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3ub(255, 160, 10); // naranja
+	glTranslated(posX, 1, 10);
+	gluSphere(gluNewQuadric(), 1, 30, 30);
+	glPopMatrix();
+
+}
+
+void unionTren(float posX, float posZ, float giro) {
+	glPushMatrix();
+	glColor3ub(80, 90, 190); // azul violáceo.
+	glTranslated(posX, 1.5, posZ);
+	glRotated(90, 0, 1, 0);
+	glRotated(giro, 1, 0, 0);
+	gluCylinder(gluNewQuadric(), 0.7, 0.5, 3, 50, 50);
+	glPopMatrix();
+}
+void cola() {
+	glPushMatrix();
+	glColor3ub(0, 0, 255); // azul
+	glTranslated(0, 12, -32);
+	gluCylinder(gluNewQuadric(), 1, 3, 20, 50, 50);
+	glPopMatrix();
+}
+
+void parteCola1() {
+	glPushMatrix();
+	glTranslated(-8, 12, -29);
+	glRotated(90, 0, 1, 0);
+	glScaled(1, 0.5, 1);
+	gluCylinder(gluNewQuadric(), 0.5, 3, 8, 50, 50);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslated(0, 20, -29);
+	glRotated(90, 0, 0, 1);
+	glRotated(-90, 0, 1, 0);
+	glScaled(1, 0.5, 1);
+	gluCylinder(gluNewQuadric(), 0.5, 3, 8, 50, 50);
+	glPopMatrix();
+}
+
+void helice() {
+
+	// Movimiento:
+	giroHelice += velHelice;
+	cout << "Giro: " << giroHelice << " - Velicidad: " << velHelice << endl;
+	if (giroHelice >= 360) {
+		giroHelice = 0;
+	}
+
+	// Diseño:
+	glColor3ub(255, 255, 0); // Amarillo.
+	glPushMatrix();
+	    glTranslated(0, 21, 0); // Posicionando +Y
+
+		glRotated(giroHelice, 0, 1, 0); // movimiento.
+
+	    glPushMatrix();
+		    glScaled(25, 0.5, 3);
+			glutSolidCube(1);
+		glPopMatrix();
+
+		glPushMatrix();
+		    glRotated(90, 0, 1, 0);
+			glScaled(25, 0.5, 3);
+			glutSolidCube(1);
+		glPopMatrix();
+
+		glPushMatrix(); // Soporte de las helice:
+		    glColor3ub(255, 90, 0); // Naranja.
+		    glRotated(90, 1, 0, 0);
+			gluCylinder(gluNewQuadric(), 1, 1, 1.5, 30, 50);
+		glPopMatrix();
+
+		glPushMatrix(); // tapida de la helice del soporte:
+		    glScaled(1.2, 0.8, 1.2);
+			glutSolidSphere(1, 30, 30);
+		glPopMatrix();
+
+	glPopMatrix();
+}
+
+void helice2() { // Parte cola
+
+	glColor3ub(255, 255, 0); // amarillo 
+	glPushMatrix(); 
+	    glTranslated(2, 17, -29);
+
+		glRotated(giroHelice, 1, 0, 0); // movimiento.
+
+		glRotated(-90, 0, 0, 1);
+
+		glPushMatrix();
+		    glScaled(25, 0.5, 3);
+		    glutSolidCube(0.5);
+	    glPopMatrix();
+
+		glPushMatrix();
+		    glRotated(90, 0, 1, 0);
+			glScaled(25, 0.5, 3);
+			glutSolidCube(0.5);
+	    glPopMatrix();
+
+		glPushMatrix();
+		    glColor3ub(255, 90, 0); // naranja
+			glRotated(90, 1, 0, 0);
+			gluCylinder(gluNewQuadric(), 1, 1, 1.5, 30, 30);
+		glPopMatrix();
+
+		glPushMatrix();
+		    glScaled(1.2, 0.8, 1.2);
+			glutSolidSphere(1, 30, 30);
+		glPopMatrix();
+
+	glPopMatrix();
+}
+
+void helicoptero() {
+
+	
+	glPushMatrix();
+	    glTranslated(0, alturaHelicoptero, moverHelicoptero); // movimiento x y z
+		glRotated(giroHelicoptero, 0, 1, 0);
+
+	    cabina();
+		trenAterrizaje(8);
+		trenAterrizaje(-8);
+		unionTren(-7.5, 4, -45);
+		unionTren(-7.5, -4, -45);
+		unionTren(7.5, 4, -135);
+		unionTren(7.5, -4, -135);
+		cola();
+		parteCola1();
+
+		helice();
+		helice2();
+	glPopMatrix();
+}
+
 // --------------------------
 
 void dibujar() {
-
-	/* Ejemplo de como esto se dibuja a cada rato:
-	velocidad++;
-	cout << velocidad << endl;
-	*/
 
 	inicializarLuces();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -287,16 +456,56 @@ void dibujar() {
 	ejes();
 
 	// Projectos 3D:
-	tierra();
+	//tierra();
 	paredes();
-	cuboRojo();
+	//cuboRojo();
+	helicoptero();
 
 	glPopMatrix();
 	glutSwapBuffers();
 
 }
 
-void timer(int t) {
+// Helicoptero tiempo de movimiento: ----------------------------
+void timerMoverHelicoptero(int z) {
+	moverHelicoptero -= 0.5;
+	if (moverHelicoptero < 25) {
+	    glutTimerFunc(50, timerMoverHelicoptero, 0); // recursividad
+	}
+}
+
+void timerGirarHelicoptero(int t) {
+	giroHelicoptero += 1;
+	if (giroHelicoptero < 180) {
+		glutTimerFunc(50, timerGirarHelicoptero, 0);
+	}
+	else {
+		glutTimerFunc(0, timerMoverHelicoptero, 0);
+	}
+}
+
+void timerSubirHelicoptero(int t) {
+	alturaHelicoptero += 1;
+	if (alturaHelicoptero < 20) { // hasta 20 nms
+		glutTimerFunc(50, timerSubirHelicoptero, 0);
+	} 
+	else {
+		glutTimerFunc(0, timerGirarHelicoptero, 0);
+	}
+}
+
+void timerHelice(int t) { // timer cada ves mas rapido
+	velHelice += 1;
+	if (velHelice < 15) {
+		glutTimerFunc(3000, timerHelice, 0); // Funcion recursiva cada 3 segundos. 
+	} 
+	else {
+		glutTimerFunc(0, timerSubirHelicoptero, 0);
+	}
+}
+// -----------------------------------------
+
+void timer(int t) { // Es un timer con una velocidad CONSTANTE
 	glutPostRedisplay();
 	glutTimerFunc(20, timer, 0);
 }
@@ -336,12 +545,16 @@ int main(int argc, char* argv[]) {
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
 	glutInitWindowSize(1009, 711);
 	glutInitWindowPosition(50, 50);
-	glutCreateWindow("Semana 10");
+	glutCreateWindow("Semana 12 y 13");
 	cargarImagenes();
 	glutReshapeFunc(iniciarVentana);
 	glutDisplayFunc(dibujar);
 	glutSpecialFunc(teclado);
 	glutTimerFunc(0, timer, 0);
+
+	// helipcoptero: 
+	glutTimerFunc(2000, timerHelice, 0);
+
 	glutMainLoop();
 	return 0;
 }

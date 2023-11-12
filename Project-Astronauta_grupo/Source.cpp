@@ -223,7 +223,7 @@ void saturno() {
 	glPopMatrix();
 }
 
-
+// Peronsaje Astronauta:
 void bota(double posX) {
 	glPushMatrix();
 	glTranslated(posX, 0.2, 0);
@@ -328,7 +328,7 @@ void astronauta() {
 	casco();
 	glPopMatrix();
 }
-
+// Fin -> Peronsaje Astronauta:
 
 
 

@@ -5,17 +5,23 @@
 
 // Agrengando las nuevas librerias:
 #include "texturas/RgbImage.h"
+#include <vector>
 
 using namespace std;
 
 float camaraX = -10;
 float camaraY = 40;
-float camaraZ = 80;
+float camaraZ = 85;
 
 float radio = 66.72;
 float angulo = 2.23;
 float centroY = 10;
 
+struct Estrella {
+	float x, y, z;
+};
+
+std::vector<Estrella> estrellas;
 
 // ----------------------------------------------------------------------------------
 
@@ -111,7 +117,7 @@ void inicializarLuces() {
 
 }
 
-
+/*
 void piso() {
 	glColor3ub(150, 150, 150);
 	glPushMatrix();
@@ -123,8 +129,8 @@ void piso() {
 	glVertex3d(-90, 0, 90);
 	glEnd();
 	glPopMatrix();
-}
-/*
+} */
+
 void piso() { // Modificando Piso con imagen:
 
 	glEnable(GL_TEXTURE_2D);
@@ -142,7 +148,6 @@ void piso() { // Modificando Piso con imagen:
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 }
-*/
 
 void ejes() {
 	glPushMatrix();
@@ -204,28 +209,43 @@ void paredes() {
 
 
 
-
-
-
 void planetaSaturno() {
 
 	glPushMatrix();
-	glTranslatef(30, 30, -40.0); // x, y, z
+	    glTranslatef(30, 30, -40.0); // x, y, z
 
-	// Dibujar Saturno
-	glColor3f(0.4588, 0.3607, 0.2705); // Marrón oscuro (aproximado)
-	glutSolidSphere(7, 100, 100);
+		// Dibujar Saturno
+		glColor3f(0.4588, 0.3607, 0.2705); // Marrón oscuro (aproximado)
+		glutSolidSphere(8, 100, 100);
+		glRotatef(50, -3, 0.0, 0.0);
+	glPopMatrix();
 
-	// Dibujar el anillo de Saturno
-	glRotatef(50, -3, 0.0, 0.0); // Inclinar los anillos
+	glPushMatrix(); // Dibujar el anillo de Saturno
+	    glTranslatef(30, 30, -40.0); // x, y, z
 
-	glScaled(1.15, 1, 1);  // Escala el objeto: X (1.15, +15%)
+	    //glScaled(1.15, 1, 1);  // Escala el objeto: X (1.15, +15%)
+		glScaled(1, 1, 1);
+		glRotatef(-115, -1, 0.0, 0.0); // Inclinar los anillos
 
-	glColor3f(0.5, 0.5, 0.5); // Color 
-	glutSolidTorus(0.8, 12, 50, 50);
+	    glColor3f(0.5, 0.5, 0.5); // Color 
+	    glutSolidTorus(0.8, 12, 50, 50); // anillo 1
+    glPopMatrix();
 
+	glPushMatrix(); // Dibujar el anillo de Saturno
+	    glTranslatef(30, 30, -40.0); // x, y, z
+	   
+
+	    //glScaled(1.35, 1.20, 1.20);  // Escala el objeto: X (1.15, +15%)
+		glScaled(1.20, 1.20, 1.20);
+		glRotatef(-115, -1, 0.0, 0.0); // Inclinar los anillos
+
+
+	    glColor3f(255, 0.5, 0.5); // Color 
+	    glutSolidTorus(0.8, 12, 50, 50); // anillo 1
 	glPopMatrix();
 }
+
+
 
 void sol() {
 	glPushMatrix();
@@ -261,8 +281,10 @@ void Planeta3() {
 
 void planetas() {
 
+
 	sol();
 	planetaSaturno();
+
 	Planeta2();
 	Planeta3();
 
@@ -286,6 +308,7 @@ void dibujar() {
 	ejes();
 
 	// Project:
+
 	paredes();
 	planetas();
 
