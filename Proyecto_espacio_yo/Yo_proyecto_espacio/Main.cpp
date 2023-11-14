@@ -27,6 +27,10 @@ std::vector<Estrella> estrellas;
 
 GLuint texturas[10]; // un arreglo de 5 elementos -> 5 imagenes
 
+// Planetas:
+//float giroTierra = 0;
+GLUquadric* quad;
+
 // 1. CargarTexturasDesdeArchivo:
 void loadTexturesFromFile(const char* filename, int index) { // filename -> Nombre del archivo
 	RgbImage theTextMap(filename);
@@ -42,8 +46,13 @@ void loadTexturesFromFile(const char* filename, int index) { // filename -> Nomb
 
 // 2: cargarImagenes al metodo -> main
 void cargarImagenes() {
-	loadTexturesFromFile("texturas/SPACE.bmp", 0);
+	loadTexturesFromFile("texturas/fondo_1.bmp", 0);
 	loadTexturesFromFile("texturas/moon.bmp", 1);
+
+	loadTexturesFromFile("texturas/tierra.bmp", 2);
+	loadTexturesFromFile("texturas/marte.bmp", 3);
+	loadTexturesFromFile("texturas/sol.bmp", 4);
+	loadTexturesFromFile("texturas/saturno.bmp", 5);
 }
 
 // ----------------------------------------------------------------------------------
@@ -167,7 +176,9 @@ void ejes() {
 	glPopMatrix();
 }
 
-// --------- Project -------
+/*--------------------------------------------------------------
+# Estructura - Project:
+--------------------------------------------------------------*/
 
 void paredes() {
 
@@ -207,17 +218,80 @@ void paredes() {
 	glBindTexture(GL_TEXTURE_2D, 0); // Desactivar la textura
 }
 
+/*--------------------------------------------------------------
+# Planetas:
+--------------------------------------------------------------*/
 
+void sol() {
+
+	// Agregando imagen:
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[4]);
+	glColor3ub(255, 255, 255);
+
+	glPushMatrix();
+	    glTranslatef(-45, 35, -50.0); // x, y, z
+
+		quad = gluNewQuadric();
+		gluQuadricTexture(quad, 1);
+		gluSphere(quad, 15, 50, 50);
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+}
+void planetaTierra() {
+
+	// Agregando imagen:
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[2]);
+	glColor3ub(255, 255, 255);
+
+	glPushMatrix();
+	    glTranslatef(-10, 30, -50.0); // x, y, z
+
+		quad = gluNewQuadric();
+		gluQuadricTexture(quad, 1);
+		gluSphere(quad, 5, 50, 50);
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+}
+
+void luna() {
+
+	// Agregando imagen:
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[1]);
+	glColor3ub(255, 255, 255);
+
+	glPushMatrix();
+	    glTranslatef(-8, 17, -50.0); // x, y, z
+
+		quad = gluNewQuadric();
+		gluQuadricTexture(quad, 1);
+		gluSphere(quad, 3.5, 50, 50);
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+}
 
 void planetaSaturno() {
 
+	// Agregando imagen:
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[5]);
+	glColor3ub(255, 255, 255);
+
 	glPushMatrix();
 	    glTranslatef(30, 30, -40.0); // x, y, z
+		//glRotatef(50, -3, 0.0, 0.0);
+		glRotatef(-115, -1, 0.0, 0.0);
 
-		// Dibujar Saturno
-		glColor3f(0.4588, 0.3607, 0.2705); // Marrón oscuro (aproximado)
-		glutSolidSphere(8, 100, 100);
-		glRotatef(50, -3, 0.0, 0.0);
+		// Dibujar Saturno:
+		quad = gluNewQuadric();
+		gluQuadricTexture(quad, 1);
+		gluSphere(quad, 8, 50, 50);
+
+		//glColor3f(0.4588, 0.3607, 0.2705); // Marrón oscuro (aproximado)
+		//glutSolidSphere(8, 100, 100);
+		//glRotatef(50, -3, 0.0, 0.0);
 	glPopMatrix();
 
 	glPushMatrix(); // Dibujar el anillo de Saturno
@@ -245,49 +319,117 @@ void planetaSaturno() {
 	glPopMatrix();
 }
 
-
-
-void sol() {
-	glPushMatrix();
-	glTranslatef(-30, 35, -50.0); // x, y, z
-
-	// Dibujar Sol
-	glColor3f(255, 255, 0); // Color gris claro para Saturno
-	glutSolidSphere(10, 100, 100);
-	glPopMatrix();
-}
-
-void Planeta2() {
-	glPushMatrix();
-	glTranslatef(-10, 30, -50.0); // x, y, z
-
-	// Dibujar 
-	glColor3ub(128, 128, 128); // Gris medio con valores enteros en el rango 0-255
-	glutSolidSphere(3, 100, 100);
-	glPopMatrix();
-}
-
-void Planeta3() {
-	glPushMatrix();
-	glTranslatef(-15, 15, -50.0); // x, y, z
-
-	// Dibujar 
-	glColor3f(1.0, 0.6, 0.2); // Naranja
-	glutSolidSphere(3.5, 100, 100);
-	glPopMatrix();
-}
-
-
-
 void planetas() {
-
 
 	sol();
 	planetaSaturno();
 
-	Planeta2();
-	Planeta3();
+	planetaTierra();
+	luna();
 
+}
+
+/*--------------------------------------------------------------
+# Astronauta:
+--------------------------------------------------------------*/
+void bota(double posX) {
+	glPushMatrix();
+	glTranslated(posX, 0.2, 0);
+	glScaled(1, 0.9, 1.5);
+	glutSolidSphere(1, 50, 50);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslated(posX, 0.2, -0.46);
+	glScaled(0.9, 1, 1);
+	glRotated(-90, 1, 0, 0);
+	gluCylinder(gluNewQuadric(), 1, 1, 0.8, 50, 50);
+	glPopMatrix();
+}
+void pierna(double posX) {
+	glPushMatrix();
+	glTranslated(posX, 1, -0.46);
+	glRotated(-90, 1, 0, 0);
+	gluCylinder(gluNewQuadric(), 1.04, 1.04, 5, 50, 50);
+	glPopMatrix();
+}
+void cuerpo() {
+	glPushMatrix();
+	glTranslated(0, 7, -0.46);
+	glScaled(1.1, 1, 0.7);
+	glRotated(-90, 1, 0, 0);
+	glutSolidSphere(2, 50, 50);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslated(0, 6, -0.46);
+	glScaled(1, 1, 0.6);
+	glRotated(-90, 1, 0, 0);
+	gluCylinder(gluNewQuadric(), 2.3, 2.6, 4, 50, 50);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslated(0, 9.6, -0.46);
+	glScaled(1.15, 1, 0.7);
+	glRotated(-90, 1, 0, 0);
+	glutSolidSphere(2.3, 50, 50);
+	glPopMatrix();
+}
+void casco() {
+	glPushMatrix();
+	glTranslated(0, 13.6, 0.24);
+	glScaled(1, 1, 0.5);
+	glRotated(10, 1, 0, 0);
+	glutSolidTorus(1.06, 1.08, 50, 50);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslated(0, 13.6, -0.6);
+	glutSolidSphere(2.2, 50, 50);
+	glPopMatrix();
+	glColor3ub(0, 0, 0);
+	glPushMatrix();
+	glTranslated(0, 13.58, -0.3);
+	glutSolidSphere(2.04, 50, 50);
+	glPopMatrix();
+}
+void brazo(double posX, int rot, int romHombro) {
+	glPushMatrix();
+	glTranslated(posX, 10.6, 0);
+	glRotated(romHombro, 0, 0, 1);
+	glScaled(1, 1.5, 1);
+	glutSolidSphere(0.6, 50, 50);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslated(posX, 10.6, 0);
+	glRotated(rot, 0, 0, 1);
+	glRotated(90, 1, 0, 0);
+	gluCylinder(gluNewQuadric(), 0.7, 0.68, 2.7, 50, 50);
+	glPopMatrix();
+}
+void antebrazo(double posX) {
+	glPushMatrix();
+	glTranslated(posX, 8.2, 0);
+	glRotated(90, 1, 0, 0);
+	gluCylinder(gluNewQuadric(), 0.68, 0.65, 2.5, 50, 50);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslated(posX, 5.8, 0);
+	glScaled(1, 1, 1);
+	glutSolidSphere(0.5, 50, 50);
+	glPopMatrix();
+}
+
+void astronauta() {
+	glPushMatrix();
+	glColor3ub(255, 255, 255);
+	bota(1.2);
+	bota(-1.2);
+	pierna(1.2);
+	pierna(-1.2);
+	cuerpo();
+	brazo(-2, -20, -60);
+	brazo(2, 20, 60);
+	antebrazo(3);
+	antebrazo(-3);
+	casco();
+	glPopMatrix();
 }
 
 
@@ -311,6 +453,7 @@ void dibujar() {
 
 	paredes();
 	planetas();
+	astronauta();
 
 	// -------
 

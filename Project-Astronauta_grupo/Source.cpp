@@ -98,28 +98,7 @@ void inicializarTerreno() {
 	}
 }
 
-void dibujarTerreno() {
-	float centro = TAMANO_TERRENO / 2.0;
 
-
-	glColor3f(109.0f / 255.0f, 159.0f / 255.0f, 184.0f / 255.0f);
-
-	for (int x = 0; x < TAMANO_TERRENO - 1; x++) {
-		for (int z = 0; z < TAMANO_TERRENO - 1; z++) {
-			float dx = x - centro;
-			float dz = z - centro;
-			float distancia = sqrt(dx * dx + dz * dz);
-			float alturaCurva = -distancia * distancia / (TAMANO_TERRENO); // Cuanto más lejos del centro, más "curvado" hacia abajo estará
-
-			glBegin(GL_QUADS);
-			glVertex3f(x, terreno[x][z] + alturaCurva, z);
-			glVertex3f(x + 1, terreno[x + 1][z] + alturaCurva, z);
-			glVertex3f(x + 1, terreno[x + 1][z + 1] + alturaCurva, z + 1);
-			glVertex3f(x, terreno[x][z + 1] + alturaCurva, z + 1);
-			glEnd();
-		}
-	}
-}
 
 
 
@@ -376,7 +355,7 @@ void dibujar() {
 
 	glPushMatrix();
 	glTranslated(-600, 120, -80);
-	dibujarTerreno();
+	//dibujarTerreno();
 	glPopMatrix();
 
 	//ejes();
