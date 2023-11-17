@@ -9,23 +9,25 @@
 
 using namespace std;
 
-float camaraX = -10;
+//float camaraX = -10; original
+//float camaraY = 40; original
+//float camaraZ = 85; original
+float camaraX = -15;
 float camaraY = 40;
-float camaraZ = 85;
+float camaraZ = 80;
 
-float radio = 66.72;
-float angulo = 2.23;
+float radio = 66.72 * 2;;
+float angulo = 2.23 * 2;;
 float centroY = 10;
 
 struct Estrella {
 	float x, y, z;
 };
-
-std::vector<Estrella> estrellas;
+std::vector<Estrella> estrellas; // me sale mal :(
 
 // ----------------------------------------------------------------------------------
 
-GLuint texturas[10]; // un arreglo de 5 elementos -> 5 imagenes
+GLuint texturas[15]; // un arreglo de 15 imagenes.
 
 // Planetas:
 //float giroTierra = 0;
@@ -53,16 +55,26 @@ void cargarImagenes() {
 	loadTexturesFromFile("texturas/marte.bmp", 3);
 	loadTexturesFromFile("texturas/sol.bmp", 4);
 	loadTexturesFromFile("texturas/saturno.bmp", 5);
+
+	// espacio:
+	loadTexturesFromFile("texturas/fondo/back.bmp", 6);
+	loadTexturesFromFile("texturas/fondo/bottom.bmp", 7);
+	loadTexturesFromFile("texturas/fondo/front.bmp", 8);
+	loadTexturesFromFile("texturas/fondo/left.bmp", 9);
+	loadTexturesFromFile("texturas/fondo/right.bmp", 10);
+	loadTexturesFromFile("texturas/fondo/top.bmp", 11);
+
+	
 }
 
 // ----------------------------------------------------------------------------------
 
-
+// Ampliando vision de 80 a 40:
 void iniciarVentana(int w, int h) {
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(80, (float)w / (float)h, 1, 200);
+	gluPerspective(75, (float)w / (float)h, 1, 500); // 60  - 200 original
 }
 void inicializarLuces() {
 
@@ -140,23 +152,10 @@ void piso() {
 	glPopMatrix();
 } */
 
-void piso() { // Modificando Piso con imagen:
 
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texturas[1]);
-
-	glColor3ub(255, 255, 255); // IMPORTANTE: Siempre trabajar con el color blanco en Texturas.
-	glPushMatrix();
-	glTranslated(0, -0.1, 0);
-	glBegin(GL_POLYGON);
-	glTexCoord2f(0, 1); glVertex3d(-90, 0, -90);
-	glTexCoord2f(1, 1); glVertex3d(90, 0, -90);
-	glTexCoord2f(1, 0); glVertex3d(90, 0, 90);
-	glTexCoord2f(0, 0); glVertex3d(-90, 0, 90);
-	glEnd();
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-}
+/*--------------------------------------------------------------
+# Estructura - Project:
+--------------------------------------------------------------*/
 
 void ejes() {
 	glPushMatrix();
@@ -176,158 +175,213 @@ void ejes() {
 	glPopMatrix();
 }
 
-/*--------------------------------------------------------------
-# Estructura - Project:
---------------------------------------------------------------*/
+/*void piso() { // Modificando Piso con imagen:
 
-void paredes() {
-
-	// llamando imagen de goku:
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texturas[0]); // Textura del espacio
+	glBindTexture(GL_TEXTURE_2D, texturas[1]);
 
-	glColor3ub(255, 255, 255);
+	glColor3ub(255, 255, 255); // IMPORTANTE: Siempre trabajar con el color blanco en Texturas.
 	glPushMatrix();
-	glBegin(GL_QUADS);
-
-	// Pared frontal
-	glTexCoord2f(0, 0); glVertex3d(-90, 0, -90);
-	glTexCoord2f(1, 0); glVertex3d(90, 0, -90);
-	glTexCoord2f(1, 1); glVertex3d(90, 90, -90);
-	glTexCoord2f(0, 1); glVertex3d(-90, 90, -90);
-
-	// Pared trasera
-	glTexCoord2f(0, 0); glVertex3d(-90, 0, 90);
-	glTexCoord2f(1, 0); glVertex3d(90, 0, 90);
-	glTexCoord2f(1, 1); glVertex3d(90, 90, 90);
-	glTexCoord2f(0, 1); glVertex3d(-90, 90, 90);
-
-	// Pared izquierda
-	glTexCoord2f(0, 0); glVertex3d(-90, 0, -90);
-	glTexCoord2f(1, 0); glVertex3d(-90, 0, 90);
-	glTexCoord2f(1, 1); glVertex3d(-90, 90, 90);
-	glTexCoord2f(0, 1); glVertex3d(-90, 90, -90);
-
-	// Pared derecha
-	glTexCoord2f(0, 0); glVertex3d(90, 0, -90);
-	glTexCoord2f(1, 0); glVertex3d(90, 0, 90);
-	glTexCoord2f(1, 1); glVertex3d(90, 90, 90);
-	glTexCoord2f(0, 1); glVertex3d(90, 90, -90);
-
-	glEnd();
-	glBindTexture(GL_TEXTURE_2D, 0); // Desactivar la textura
-}
-
-/*--------------------------------------------------------------
-# Planetas:
---------------------------------------------------------------*/
-
-void sol() {
-
-	// Agregando imagen:
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texturas[4]);
-	glColor3ub(255, 255, 255);
-
-	glPushMatrix();
-	    glTranslatef(-45, 35, -50.0); // x, y, z
-
-		quad = gluNewQuadric();
-		gluQuadricTexture(quad, 1);
-		gluSphere(quad, 15, 50, 50);
+	    glTranslated(0, -0.1, 0);
+		glBegin(GL_POLYGON);
+		glTexCoord2f(0, 1); glVertex3d(-90, 0, -90);
+		glTexCoord2f(1, 1); glVertex3d(90, 0, -90);
+		glTexCoord2f(1, 0); glVertex3d(90, 0, 90);
+		glTexCoord2f(0, 0); glVertex3d(-90, 0, 90);
+		glEnd();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
-}
-void planetaTierra() {
+} */
 
-	// Agregando imagen:
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texturas[2]);
-	glColor3ub(255, 255, 255);
-
-	glPushMatrix();
-	    glTranslatef(-10, 30, -50.0); // x, y, z
-
-		quad = gluNewQuadric();
-		gluQuadricTexture(quad, 1);
-		gluSphere(quad, 5, 50, 50);
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-}
-
-void luna() {
-
-	// Agregando imagen:
+void piso_luna() {
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texturas[1]);
 	glColor3ub(255, 255, 255);
 
 	glPushMatrix();
-	    glTranslatef(-8, 17, -50.0); // x, y, z
+	    glTranslatef(0, -120, 45); // x, y, z
 
 		quad = gluNewQuadric();
 		gluQuadricTexture(quad, 1);
-		gluSphere(quad, 3.5, 50, 50);
+		gluSphere(quad, 120, 50, 50); // perfecto
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 }
 
-void planetaSaturno() {
+void paredes() {
+	glEnable(GL_TEXTURE_2D);
+	glTranslatef(0, -100, 0);
 
-	// Agregando imagen:
+	// Pared frontal
+	glBindTexture(GL_TEXTURE_2D, texturas[8]); // Textura del frente
+	glColor3ub(255, 255, 255);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0); glVertex3d(-200, 0, -200);
+	glTexCoord2f(1, 0); glVertex3d(200, 0, -200);
+	glTexCoord2f(1, 1); glVertex3d(200, 200, -200);
+	glTexCoord2f(0, 1); glVertex3d(-200, 200, -200);
+	glEnd();
+
+	// Pared trasera
+	glBindTexture(GL_TEXTURE_2D, texturas[6]); // Textura de atrás
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0); glVertex3d(-200, 0, 200);
+	glTexCoord2f(1, 0); glVertex3d(200, 0, 200);
+	glTexCoord2f(1, 1); glVertex3d(200, 200, 200);
+	glTexCoord2f(0, 1); glVertex3d(-200, 200, 200);
+	glEnd();
+
+	// Pared izquierda
+	glBindTexture(GL_TEXTURE_2D, texturas[9]); // Textura de la izquierda
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0); glVertex3d(-200, 0, -200);
+	glTexCoord2f(1, 0); glVertex3d(-200, 0, 200);
+	glTexCoord2f(1, 1); glVertex3d(-200, 200, 200);
+	glTexCoord2f(0, 1); glVertex3d(-200, 200, -200);
+	glEnd();
+
+	// Pared derecha
+	glBindTexture(GL_TEXTURE_2D, texturas[10]); // Textura de la derecha
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0); glVertex3d(200, 0, -200);
+	glTexCoord2f(1, 0); glVertex3d(200, 0, 200);
+	glTexCoord2f(1, 1); glVertex3d(200, 200, 200);
+	glTexCoord2f(0, 1); glVertex3d(200, 200, -200);
+	glEnd();
+
+	// Pared superior
+	glBindTexture(GL_TEXTURE_2D, texturas[11]); // Textura de arriba
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0); glVertex3d(-200, 200, -200);
+	glTexCoord2f(1, 0); glVertex3d(200, 200, -200);
+	glTexCoord2f(1, 1); glVertex3d(200, 200, 200);
+	glTexCoord2f(0, 1); glVertex3d(-200, 200, 200);
+	glEnd();
+
+	// Pared inferior
+	glBindTexture(GL_TEXTURE_2D, texturas[7]); // Textura de abajo
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0); glVertex3d(-200, 0, -200);
+	glTexCoord2f(1, 0); glVertex3d(200, 0, -200);
+	glTexCoord2f(1, 1); glVertex3d(200, 0, 200);
+	glTexCoord2f(0, 1); glVertex3d(-200, 0, 200);
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, 0); // Desactivar la textura
+	glDisable(GL_TEXTURE_2D);
+} 
+
+
+// Cielo:
+/*void esfera_universo() {
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[6]);
+	glColor3ub(255, 255, 255);
+
+	glPushMatrix();
+	    glTranslatef(0, 0, 0); // x, y, z
+
+	    quad = gluNewQuadric();
+	    gluQuadricTexture(quad, 1);
+	    gluSphere(quad, 140, 50, 50); // perfecto
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+}  */
+
+/*--------------------------------------------------------------
+# Planetas:
+--------------------------------------------------------------*/
+float angleTierra = 0.0;
+float angleMarte = 0.0;
+float angleSaturno = 0.0;
+//float distanceFactor = 1.35; // Factor de distancia para alejar los planetas
+float factorDistanciaTierra = 1.0;  // Factor de distancia para la Tierra
+float factorDistanciaMarte = 1.8;   // Factor de distancia para Marte
+float factorDistanciaSaturno = 2.5; // Factor de distancia para Saturno
+
+void sol() {
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[4]);
+	glColor3ub(255, 255, 255);
+
+	glPushMatrix();
+	    glTranslatef(-60, 40, -50.0); // Posición del sol
+		glRotatef(angleTierra, 0.0, 1.0, 0.0); // Rotación del sol
+		gluSphere(quad, 20, 50, 50);
+	glPopMatrix();
+
+	glDisable(GL_TEXTURE_2D);
+}
+
+void planetaTierra() {
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[2]);
+	glColor3ub(255, 255, 255);
+
+	glPushMatrix();
+	    glTranslatef(-60 + 50 * factorDistanciaTierra * cos(angleTierra * 0.0175), 40, -50.0 + 50 * factorDistanciaTierra * sin(angleTierra * 0.0175));
+	
+	    glRotatef(angleTierra, 0.0, 1.0, 0.0); // Rotación propia de la Tierra
+	    gluSphere(quad, 5, 50, 50);
+	glPopMatrix();
+
+	glDisable(GL_TEXTURE_2D);
+}
+
+void marte() {
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texturas[3]);
+	glColor3ub(255, 255, 255);
+
+	glPushMatrix();
+	    glTranslatef(-60 + 35 * factorDistanciaMarte * cos(angleMarte * 0.0175), 40, -50.0 + 35 * factorDistanciaMarte * sin(angleMarte * 0.0175));
+
+		glRotatef(angleMarte, 0.0, 1.0, 0.0); // Rotación propia de Marte
+		gluSphere(quad, 3.5, 50, 50);
+	glPopMatrix();
+
+	glDisable(GL_TEXTURE_2D);
+}
+
+void planetaSaturno() {
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texturas[5]);
 	glColor3ub(255, 255, 255);
 
 	glPushMatrix();
-	    glTranslatef(30, 30, -40.0); // x, y, z
-		//glRotatef(50, -3, 0.0, 0.0);
-		glRotatef(-115, -1, 0.0, 0.0);
 
-		// Dibujar Saturno:
-		quad = gluNewQuadric();
-		gluQuadricTexture(quad, 1);
-		gluSphere(quad, 8, 50, 50);
+	    glTranslatef(-60 + 30 * factorDistanciaSaturno * cos(angleSaturno * 0.0175), 40, -50.0 + 30 * factorDistanciaSaturno * sin(angleSaturno * 0.0175));
 
-		//glColor3f(0.4588, 0.3607, 0.2705); // Marrón oscuro (aproximado)
-		//glutSolidSphere(8, 100, 100);
-		//glRotatef(50, -3, 0.0, 0.0);
+	    glRotatef(angleSaturno, 0.0, 1.0, 0.0); // Rotación propia de Saturno
+	    gluSphere(quad, 8, 50, 50);
+
+	    // anillo 1:
+	    glPushMatrix();
+	        glScaled(1, 0.5, 1);
+			glRotatef(-115, -1, 0.0, 0.0);
+		    glColor3f(0.5, 0.5, 0.5);
+		    glutSolidTorus(0.8, 12, 50, 50);
+     	glPopMatrix();
+	    // anillo 2:
+	    glPushMatrix();
+	        glScaled(1.20, 0.5, 1.20);
+			glRotatef(-115, -1, 0.0, 0.0);
+			glColor3f(255, 0.5, 0.5);
+			glutSolidTorus(0.8, 12, 50, 50);
+	    glPopMatrix();
+
 	glPopMatrix();
-
-	glPushMatrix(); // Dibujar el anillo de Saturno
-	    glTranslatef(30, 30, -40.0); // x, y, z
-
-	    //glScaled(1.15, 1, 1);  // Escala el objeto: X (1.15, +15%)
-		glScaled(1, 1, 1);
-		glRotatef(-115, -1, 0.0, 0.0); // Inclinar los anillos
-
-	    glColor3f(0.5, 0.5, 0.5); // Color 
-	    glutSolidTorus(0.8, 12, 50, 50); // anillo 1
-    glPopMatrix();
-
-	glPushMatrix(); // Dibujar el anillo de Saturno
-	    glTranslatef(30, 30, -40.0); // x, y, z
-	   
-
-	    //glScaled(1.35, 1.20, 1.20);  // Escala el objeto: X (1.15, +15%)
-		glScaled(1.20, 1.20, 1.20);
-		glRotatef(-115, -1, 0.0, 0.0); // Inclinar los anillos
-
-
-	    glColor3f(255, 0.5, 0.5); // Color 
-	    glutSolidTorus(0.8, 12, 50, 50); // anillo 1
-	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 }
 
 void planetas() {
-
+	piso_luna();
 	sol();
-	planetaSaturno();
-
 	planetaTierra();
-	luna();
-
+	marte();
+	planetaSaturno();
 }
+
 
 /*--------------------------------------------------------------
 # Astronauta:
@@ -417,23 +471,31 @@ void antebrazo(double posX) {
 }
 
 void astronauta() {
+	//glTranslated(0, 0, 9);
 	glPushMatrix();
-	glColor3ub(255, 255, 255);
-	bota(1.2);
-	bota(-1.2);
-	pierna(1.2);
-	pierna(-1.2);
-	cuerpo();
-	brazo(-2, -20, -60);
-	brazo(2, 20, 60);
-	antebrazo(3);
-	antebrazo(-3);
-	casco();
+	    glTranslated(0, 0, 45);
+
+	    glColor3ub(255, 255, 255);
+		bota(1.2);
+		bota(-1.2);
+		pierna(1.2);
+		pierna(-1.2);
+	    cuerpo();
+		brazo(-2, -20, -60);
+		brazo(2, 20, 60);
+		antebrazo(3);
+		antebrazo(-3);
+		casco();
 	glPopMatrix();
 }
 
+/*--------------------------------------------------------------
+# Nave - Fernando:
+--------------------------------------------------------------*/
+// tu codigo:
 
-// --------- 
+
+// -------------------------------------------------------------
 
 void dibujar() {
 
@@ -443,18 +505,23 @@ void dibujar() {
 	glLoadIdentity();
 	gluLookAt(radio * cos(angulo), camaraY, radio * sin(angulo), 0, centroY, 0, 0, 1, 0);
 	//glClearColor(255 / 255.0, 255 / 255.0, 208 / 255.0, 1); // amarillos palido:
-	glClearColor(0.2, 0.2, 0.15, 1); // Color de fondo oscuro y pálido
+	//glClearColor(0.2, 0.2, 0.15, 1); // Color de fondo oscuro y pálido
+	glClearColor(255, 255, 255, 1);
 	glPushMatrix();
 
-	piso();
+	//piso();
 	ejes();
 
 	// Project:
 
-	paredes();
+	//paredes();
+	
 	planetas();
 	astronauta();
 
+	
+	//esfera_universo();
+	paredes();
 	// -------
 
 	glPopMatrix();
@@ -463,6 +530,11 @@ void dibujar() {
 }
 
 void timer(int t) {
+	angleTierra += 1.0; // Ajusta la velocidad de rotación de la Tierra
+	angleMarte += 0.7;  // Ajusta la velocidad de rotación de Marte
+	angleSaturno += 0.3; // Ajusta la velocidad de rotación de Saturno
+
+
 	glutPostRedisplay();
 	glutTimerFunc(20, timer, 0);
 }
@@ -505,7 +577,7 @@ int main(int argc, char* argv[]) {
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
 	glutInitWindowSize(1009, 711);
 	glutInitWindowPosition(50, 50);
-	glutCreateWindow("Project - Astraonauta");
+	glutCreateWindow("Project - Astraonauta - T4");
 	cargarImagenes();
 	glutReshapeFunc(iniciarVentana);
 	glutDisplayFunc(dibujar);

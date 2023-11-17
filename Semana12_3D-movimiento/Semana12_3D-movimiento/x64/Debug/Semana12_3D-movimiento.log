@@ -21,6 +21,6 @@ C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-mo
 C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\Semana12_3D-movimiento\Main.cpp(92,36): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
 C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\Semana12_3D-movimiento\Main.cpp(92,40): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
 C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\Semana12_3D-movimiento\Main.cpp(452,45): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\Semana12_3D-movimiento\Main.cpp(517,17): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\Semana12_3D-movimiento\Main.cpp(520,17): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\Semana12_3D-movimiento\Main.cpp(535,17): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\Semana12_3D-movimiento\Main.cpp(538,17): warning C4305: '-=': truncamiento de 'double' a 'float'
   Semana12_3D-movimiento.vcxproj -> C:\Users\PC\Desktop\UPN\6to--2023_2\ComputacionGrafica\Codigo_C++\Semana12_3D-movimiento\x64\Debug\Semana12_3D-movimiento.exe

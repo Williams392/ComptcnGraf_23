@@ -461,6 +461,7 @@ void dibujar() {
 	//cuboRojo();
 	helicoptero();
 
+
 	glPopMatrix();
 	glutSwapBuffers();
 
